@@ -1,34 +1,48 @@
-//xy.less
+@import '../reset.css';
 @import 'variables.less';
+
 .radius{
- border-radius: 3px;
+    border-radius: 4px;
 }
 .box-shadow{
     //box-shadow:
 }
-@font-face {font-family: "hrfont";
-    src: url('/static/fonts/iconfont.eot'); /* IE9*/
-    src: url('/static/fonts/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('/static/fonts/iconfont.woff') format('woff'), /* chrome, firefox */
-    url('/static/fonts/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-    url('/static/fonts/iconfont.svg#hrfont') format('svg'); /* iOS 4.1- */
+a{
+    color: @font-color;
+    &:hover{
+        color:@base-color;
+    }
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'iconfont';
+    font-size: 14px;
+    background-color: @base-background-color;
+}
+//字体iconfont.css？
+/*@font-face {font-family: "hrfont";
+    src: url('/static/fonts/iconfont.eot'); !* IE9*!
+    src: url('/static/fonts/iconfont.eot#iefix') format('embedded-opentype'), !* IE6-IE8 *!
+    url('/static/fonts/iconfont.woff') format('woff'), !* chrome, firefox *!
+    url('/static/fonts/iconfont.ttf') format('truetype'), !* chrome, firefox, opera, Safari, Android, iOS 4.2+*!
+    url('/static/fonts/iconfont.svg#hrfont') format('svg'); !* iOS 4.1- *!
 }
 .hrfont {
     font-family:"hrfont" !important;
     font-size:14px;
-}
-body{
-    .hrfont;
-}
+}*/
 button{
     .radius;
     padding: 9px 15px;
-   &:hover{
-       transform: scale(1.05, 1.05);
-       transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-   }
+    font-size:14px;
+    &:hover{
+        transform: scale(1.05, 1.05);
+        transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
     color:#fff;
-    .color-hover(#55B761);
+    .color-hover(@base-color);
     &.tinny{
         padding: 4px 6px;
         font-size:12px;
@@ -41,10 +55,21 @@ button{
         padding: 10px 20px;
         font-size:16px;
     }
+    &.btn-warn{
+        .color-hover(@--danger)
+    }
+    &.btn-accessory{
+        .color-hover(@accessory-color)
+    }
+    &.btn-primary{
+        border:2px solid  @border-color;
+        background-color: transparent;
+        color: @border-color;
+    }
 }
 input{
     .radius;
-    border: @input-border;// variables
+    border: @input-border;
     height:36px;
     line-height:36px;
     padding-left:14px;
@@ -55,5 +80,10 @@ input{
     &.large{
         height:44px;
         line-height: 44px;
+    }
+    &:focus {
+        outline: none;
+        border:2px solid @--info;
+        //box-shadow: 0 0 2px #719ECE;
     }
 }

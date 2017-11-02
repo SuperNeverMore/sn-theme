@@ -4,14 +4,18 @@
       <h1>test</h1>
       <p>A vue project.</p>
       <p><a href="https://www.timecamp.com/">https://www.timecamp.com/</a></p>
+      <br/>
       <button type="button" @click="btnClick1" value="点击我">red</button>
       <button type="button" @click="btnClick" value="点击我" class="btn-warn " v-show="warn1">warn</button>
-      <button type="button" @click="btnClick" value="点击我" class="btn-warn2 " v-show="warn2">warn</button>
-      <input type="text">
+      <button type="button" @click="btnClick" value="点击我" class="btn-accessory " v-show="warn2">warn</button>
       <br/><br/>
       <button type="button" @click="btnClick2" value="点击我" class="btn-primary large">purple</button>
       <button type="button" @click="btnClick2" value="点击我" class="btn-primary">purple</button>
       <button type="button" @click="btnClick2" value="点击我" class="btn-primary small">purple</button>
+      <br/><br/>
+      <input type="text" class="large">
+      <input type="text" class="">
+      <input type="text" class="small">
     </div>
     <div class="night">
       <h1>test</h1>
@@ -50,83 +54,26 @@
 </script>
 <style lang="less" >
   @import '../../static/styles/common.less';
-  @back: #55B761;
-  body{
-    background-color: #fefefe;
-    padding: 0;
-    margin: 0;
-  }
-  *{
-    box-sizing:border-box
-  }
-
-  a{
-    text-decoration:none;
-    color: #333333;
-    &:hover{
-      color:@back;
-    }
-  }
-/*
-  button{
-    background-color: #55B761;
-    color: #ffffff;
-    border: none;
-    .radius;
-    font-size:14px;
-    &:hover{
-      background-color: #42A34E;
-      transform: scale(1.05, 1.05);
-      transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1)
-    }
-  }
-*/
-
+  @back: @base-color;
   .day{
     ::selection{
       background:#1c1c1c;
       color:#ffffff;
     }
-    //width:47%;
     width:100%;
     display:inline-block;
     padding:40px;
-    color: #333;
-    button{
-      &.btn-warn{
-    /*    background: #EE3133;
-        &:hover{
-          background-color: #d62c2e;
-        }*/
-        .color-hover(#EE3133)
-      }
-      &.btn-warn2{
- /*       background: @accessory-color;//#663366;
-        &:hover{
-          background-color: #a867a8;//#660066;
-        }*/
-        .color-hover(@accessory-color)
-      }
-      &.btn-primary{
-        border:2px solid  #495057;
-        background-color: transparent;
-        color: #495057;
-      }
-    }
   }
   .night{
     ::selection{
-      /*background: #fff;*/
-      /*color: #333*/
     }
-    //width:50%;
     width:100%;
     display:inline-block;
     padding:40px;
     background-color: #1c1c1c;
     color: #ffffff;
     button{
-      background-color: #1b7e27;
+      background-color: @dark-background-color;
       &.btn-warn{
         background: #EE3133;
         @back:#EE3133;
@@ -155,7 +102,7 @@
       }
     }
     p{
-      color:#898989;
+      color:@dark-p-color;
     }
     input{
       background-color: transparent;

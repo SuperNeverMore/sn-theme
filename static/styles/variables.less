@@ -1,5 +1,5 @@
 /*--------------------------------集成字体库-------------------------------*/
-//@import url(sn-font/iconfont.css);
+@import url(sn-font/iconfont.css);
 /*----------------------------------前缀----------------------------------*/
 @prefix: sn-;
 @primary: --primary;
@@ -10,20 +10,23 @@
 /*----------------------------------Colors------------------------------- */
 // 字体颜色
 @font-color: #333;
+@dark-p-color: #898989;
 // 背景色
 @base-background-color: #fefefe;
-
+@dark-background-color: #1c1c1c;
 /*************基本颜色***************/
+@base-color: #55B761;
+@accessory-color: #b26cb2;
+
 @--primary: @base-background-color;
 @--success: #13ce66;
 @--warning: #f7ba2a;
-@--danger: #ff4949;
-@--info: #50bfff;
+@--danger: #EE3133;//#ff4949;
+@--info: #80BDFF;//#50bfff;
 
-@base-color: #55B761;
-@accessory-color: #b26cb2;
 // 边框颜色
 @base-border-color: @base-background-color;
+@border-color: #495057;
 // link
 @link-color: @base-color;
 // 默认border-radius
@@ -35,12 +38,13 @@
     background-color: @color;
     border: 1px solid @color;
     &:hover {
-        background-color: darken(@color,6%);
-        border: 1px solid darken(@color,6%);
+        background-color: darken(@color,8%);
+        border: 1px solid darken(@color,8%);
     }
 }
 /*-------------------------------input-------------------------------------*/
 @input-border: 2px solid rgba(0,0,0,0.15);
+
 
 // 一些颜色运算：
 // saturate(@base-color, 10%);  //增加一定数值的颜色饱和度。
