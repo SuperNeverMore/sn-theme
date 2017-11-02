@@ -7,8 +7,13 @@
   "scripts": {
   },
   "license": "MIT",
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperNeverMore/sn-theme.git"
   },
-  "devDependencies": {
-  }
+  "author": "supernever",
+  "bugs": {
+    "url": "https://github.com/SuperNeverMore/sn-theme/issues"
+  },
+  "homepage": "https://github.com/SuperNeverMore/sn-theme#readme"
 }
