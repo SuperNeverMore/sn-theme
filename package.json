@@ -1,7 +1,7 @@
 {
-  "name": "sn-theme-vars",
+  "name": "sn-theme",
   "version": "0.0.1",
-  "description": "variables",
+  "description": "sn-variables",
   "private": false,
   "keywords": [],
   "scripts": {
