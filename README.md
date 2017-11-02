@@ -1,8 +1,9 @@
 # sn-theme
 /*----------------------------------common.less----------------------------------*/
-????14px
-button ??: ?? small large
-button ??? ??(?? btn-warn(?) btn-accessory(?)
+font-size:14px
 
-input?? : ?? small large
+button: small large
+button: .btn-warn .btn-accessory
+
+input :  small large
 
