@@ -1,0 +1,59 @@
+//xy.less
+@import 'variables.less';
+.radius{
+ border-radius: 3px;
+}
+.box-shadow{
+    //box-shadow:
+}
+@font-face {font-family: "hrfont";
+    src: url('/static/fonts/iconfont.eot'); /* IE9*/
+    src: url('/static/fonts/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/static/fonts/iconfont.woff') format('woff'), /* chrome, firefox */
+    url('/static/fonts/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('/static/fonts/iconfont.svg#hrfont') format('svg'); /* iOS 4.1- */
+}
+.hrfont {
+    font-family:"hrfont" !important;
+    font-size:14px;
+}
+body{
+    .hrfont;
+}
+button{
+    .radius;
+    padding: 9px 15px;
+   &:hover{
+       transform: scale(1.05, 1.05);
+       transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+   }
+    color:#fff;
+    .color-hover(#55B761);
+    &.tinny{
+        padding: 4px 6px;
+        font-size:12px;
+    }
+    &.small{
+        padding: 4px 10px;
+        font-size:12px;
+    }
+    &.large{
+        padding: 10px 20px;
+        font-size:16px;
+    }
+}
+input{
+    .radius;
+    border: @input-border;// variables
+    height:36px;
+    line-height:36px;
+    padding-left:14px;
+    &.samll{
+        height:28px;
+        line-height: 28px;
+    }
+    &.large{
+        height:44px;
+        line-height: 44px;
+    }
+}
