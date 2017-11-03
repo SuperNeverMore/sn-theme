@@ -1,13 +1,18 @@
 /*--------------------------------集成字体库-------------------------------*/
-@import url(sn-font/snfont.css);
+@import url(sn-font/iconfont.css);
 /*----------------------------------前缀----------------------------------*/
 @prefix: sn-;
+/*----------------------------------后缀----------------------------------*/
 @primary: --primary;
 @success: --success;
 @warning: --warning;
 @danger: --danger;
 @info: --info;
 @accessory: --accessory;
+//大小
+@tinny: --tinny;
+@small: --small;
+@large: --large;
 /*----------------------------------Colors------------------------------- */
 // 字体颜色
 @font-color: #333;
@@ -27,8 +32,11 @@
 // 边框颜色
 @base-border-color: @base-background-color;
 @border-color: #495057;
+@dark-border-color: #d8d8d8;
 // link
 @link-color: @base-color;
+
+/*-------------------------------默认样式-------------------------------------*/
 // 默认border-radius
 @border-radius: 4px;
 // 默认手势
@@ -37,9 +45,19 @@
 .color-hover(@color: @base-background-color) {
     background-color: @color;
     border: 1px solid @color;
+    color:#fff;
     &:hover {
         background-color: darken(@color,8%);
-        border: 1px solid darken(@color,8%);
+        border-color: darken(@color,8%);
+    }
+}
+.color-hover-primary(@color: @border-color) {
+    background-color: transparent;
+    border:1px solid lighten(@color, 25%);
+    color: @color;
+    &:hover {
+        background-color: transparent;
+        border-color: @color;
     }
 }
 /*-------------------------------input-------------------------------------*/

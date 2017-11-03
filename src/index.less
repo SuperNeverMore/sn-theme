@@ -1,11 +1,13 @@
-@import './reset.css';
+@import 'reset.css';
 @import 'variables.less';
 
-.radius{
-    border-radius: 4px;
-}
-.box-shadow{
-    //box-shadow:
+.radius{ border-radius: 4px; }
+.box-shadow{ }
+*{ box-sizing: border-box;}
+body{
+    font-family: 'snfont';
+    font-size: 14px;
+    background-color: @base-background-color;
 }
 a{
     color: @font-color;
@@ -13,68 +15,70 @@ a{
         color:@base-color;
     }
 }
-*{
-    box-sizing: border-box;
-}
-body{
-    font-family: 'snfont';
-    font-size: 14px;
-    background-color: @base-background-color;
-}
-button{
+button.@{prefix}btn {
     .radius;
     padding: 9px 15px;
     font-size:14px;
     &:hover{
         //transform: scale(1.05, 1.05);
         transform: translateY(-2px);
-        transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), color 0.2s ease-in-out;
+        //transition: color 0.3s ease-in-out;
     }
-    color:#fff;
-    .color-hover(@base-color);
-    &.tinny{
-        padding: 4px 6px;
+    .color-hover-primary(@border-color);
+    &@{danger}{
+        background-color: @@danger;
+        .color-hover(@@danger)
+    }
+    &@{accessory}{
+        background-color: @@accessory;
+        .color-hover(@@accessory)
+    }
+    &@{warning}{
+        background-color: @@warning;
+        .color-hover(@@warning)
+    }
+    &@{primary}{
+        .color-hover(@base-color);
+    }
+    &@{tinny}{
+        padding: 2px 6px;
         font-size:12px;
     }
-    &.small{
+    &@{small}{
         padding: 4px 10px;
         font-size:12px;
     }
-    &.large{
+    &@{large}{
         padding: 10px 20px;
         font-size:16px;
     }
-    &.@{prefix}btn{
-        &@{danger}{
-            .color-hover(@@danger)
-        }
-        &@{accessory}{
-            .color-hover(@@accessory)
-        }
-        &@{primary}{
-            border:2px solid  @border-color;
-            background-color: transparent;
-            color: @border-color;
-        }
-    }
 }
-input{
+input.@{prefix}input{
     .radius;
     border: @input-border;
-    height:36px;
-    line-height:36px;
+    height:38px;
+    line-height:38px;
     padding-left:14px;
-    &.samll{
-        height:28px;
-        line-height: 28px;
-    }
-    &.large{
-        height:44px;
-        line-height: 44px;
-    }
+    font-size:14px;
     &:focus {
         outline: none;
         border:2px solid @@info;
-        //box-shadow: 0 0 2px #719ECE;
+    }
+    &@{tinny}{
+        height:30px;
+        line-height: 30px;
+        font-size:12px;
+    }
+    &@{small}{
+        height:34px;
+        line-height: 34px;
+        font-size:12px;
+
+    }
+    &@{large}{
+        height:42px;
+        line-height: 42px;
+        font-size:14px;
     }
 }
