@@ -19,7 +19,7 @@ button.@{prefix}btn {
     .radius;
     padding: 9px 15px;
     font-size:14px;
-    &:hover{
+    &:not(.is-disabled):hover{
         //transform: scale(1.05, 1.05);
         transform: translateY(-2px);
         transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), color 0.2s ease-in-out;
@@ -64,6 +64,7 @@ input.@{prefix}input{
     &:focus {
         outline: none;
         border:2px solid @@info;
+        //box-shadow: 0 0 2px #719ECE;
     }
     &@{tinny}{
         height:30px;

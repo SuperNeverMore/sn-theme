@@ -46,18 +46,27 @@
     background-color: @color;
     border: 1px solid @color;
     color:#fff;
-    &:hover {
+    &:not(.is-disabled):hover {
         background-color: darken(@color,8%);
-        border-color: darken(@color,8%);
+        border: 1px solid darken(@color,8%);
+    }
+    &.is-disabled {
+        background-color: mix(@color, #fff);
+        border-color: mix(@color, #fff);
+        color:#fff;
     }
 }
 .color-hover-primary(@color: @border-color) {
     background-color: transparent;
-    border:1px solid lighten(@color, 25%);
-    color: @color;
-    &:hover {
+    border:2px solid lighten(@color, 25%);
+    color: @font-color;
+    &:not(.is-disabled):hover {
         background-color: transparent;
         border-color: @color;
+    }
+    &.is-disabled{
+        border-color: mix(@color, #fff);
+        color: mix(@color, #fff)
     }
 }
 /*-------------------------------input-------------------------------------*/
