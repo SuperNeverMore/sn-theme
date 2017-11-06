@@ -1,7 +1,8 @@
 /*--------------------------------集成字体库-------------------------------*/
-@import url(sn-font/snfont.css);
+@import url(sn-font/iconfont.css);
 /*----------------------------------前缀----------------------------------*/
 @prefix: sn-;
+/*----------------------------------后缀----------------------------------*/
 @primary: --primary;
 @success: --success;
 @warning: --warning;
@@ -10,6 +11,10 @@
 @accessory: --accessory;
 /*----------------------------------Size------------------------------- */
 @base-size: 62.5%;
+//大小
+@tinny: --tinny;
+@small: --small;
+@large: --large;
 /*----------------------------------Colors------------------------------- */
 // 字体颜色
 @font-color: #333;
@@ -29,8 +34,11 @@
 // 边框颜色
 @base-border-color: @base-background-color;
 @border-color: #495057;
+@dark-border-color: #d8d8d8;
 // link
 @link-color: @base-color;
+
+/*-------------------------------默认样式-------------------------------------*/
 // 默认border-radius
 @border-radius: 4px;
 // 默认手势
@@ -39,9 +47,28 @@
 .color-hover(@color: @base-background-color) {
     background-color: @color;
     border: 1px solid @color;
-    &:hover {
+    color:#fff;
+    &:not(.is-disabled):hover {
         background-color: darken(@color,8%);
         border: 1px solid darken(@color,8%);
+    }
+    &.is-disabled {
+        background-color: mix(@color, #fff);
+        border-color: mix(@color, #fff);
+        color:#fff;
+    }
+}
+.color-hover-primary(@color: @border-color) {
+    background-color: transparent;
+    border:2px solid lighten(@color, 25%);
+    color: @font-color;
+    &:not(.is-disabled):hover {
+        background-color: transparent;
+        border-color: @color;
+    }
+    &.is-disabled{
+        border-color: mix(@color, #fff);
+        color: mix(@color, #fff)
     }
 }
 /*-------------------------------input-------------------------------------*/
