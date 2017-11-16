@@ -1,30 +1,23 @@
 # sn-theme
-/*----------------------------------common.less----------------------------------*/
-font-size:14px
+### variables.less
+### 定义主题变量的less文件
+--整体修改主题样式时需要改变的变量，定义整体风格
 
-button: small large
-button: .btn-warn .btn-accessory
-
-input :  small large
-
-变量名称实例：
-```bash
-/*----------------------------------前缀----------------------------------*/
+包含:
++ 公共前缀
+```
 @prefix: sn-;
-@primary: --primary;
-@success: --success;
-@warning: --warning;
-@danger: --danger;
-@info: --info;
-@accessory: --accessory;
-/*----------------------------------Colors------------------------------- */
+
+```
+
++ 主要颜色： 
+```
 // 字体颜色
 @font-color: #333;
 @dark-p-color: #898989;
 // 背景色
 @base-background-color: #fefefe;
 @dark-background-color: #1c1c1c;
-/*************基本颜色***************/
 @base-color: #55B761;
 
 @--primary: @base-background-color;
@@ -36,21 +29,80 @@ input :  small large
 // 边框颜色
 @base-border-color: @base-background-color;
 @border-color: #495057;
+@dark-border-color: #d8d8d8;
 // link
 @link-color: @base-color;
-// 默认border-radius
-@border-radius: 4px;
-// 默认手势
-@cursor: pointer;
-/*-------------------------------button-------------------------------------*/
-.color-hover(@color: @base-background-color) {
-    background-color: @color;
-    border: 1px solid @color;
-    &:hover {
-        background-color: darken(@color,8%);
-        border: 1px solid darken(@color,8%);
+```
+
++ 基本尺寸： 
+```
+
+@tinny: --tinny;
+@small: --small;
+@large: --large;
+```
+
++ 不同类型
+```
+@primary: --primary;
+@success: --success;
+@warning: --warning;
+@danger: --danger;
+@info: --info;
+@accessory: --accessory;
+
+```
+
+*******
+### common.less
+### 定义公共样式
+公共引用less文件
+
+定义body  a button input box-shadow radius等基本样式
+
+具体颜色、尺寸后缀引用variables.less文件
+```
+a{
+    color: @font-color;
+    &:hover{
+        color:@base-color;
     }
 }
-/*-------------------------------input-------------------------------------*/
-@input-border: 2px solid rgba(0,0,0,0.15);
+button.@{prefix}btn {
+    .radius;
+    padding: 9px 15px;
+    font-size:14px;
+    &:not(.is-disabled):hover{
+        transform: translateY(-2px);
+        transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), color 0.2s ease-in-out;
+    }
+    .color-hover-primary(@border-color);
+    &@{danger}{
+        background-color: @@danger;
+        .color-hover(@@danger)
+    }
+    &@{accessory}{
+        background-color: @@accessory;
+        .color-hover(@@accessory)
+    }
+    &@{warning}{
+        background-color: @@warning;
+        .color-hover(@@warning)
+    }
+    &@{primary}{
+        .color-hover(@base-color);
+    }
+    &@{tinny}{
+        padding: 2px 6px;
+        font-size:12px;
+    }
+    &@{small}{
+        padding: 4px 10px;
+        font-size:12px;
+    }
+    &@{large}{
+        padding: 10px 20px;
+        font-size:16px;
+    }
+}
 ```
